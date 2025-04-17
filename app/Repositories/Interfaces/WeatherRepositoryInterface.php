@@ -7,5 +7,5 @@ use Illuminate\Http\JsonResponse;
 
 interface WeatherRepositoryInterface
 {
-    public function getWeatherByCity(string $city): WeatherData|JsonResponse;
+    public function getWeatherByCity(string $city): WeatherData;
 }
