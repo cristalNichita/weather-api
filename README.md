@@ -1,20 +1,25 @@
-# ☁️ Laravel Weather API (OpenWeatherMap)
+# Laravel Weather API (OpenWeatherMap)
 
 ---
 
-## Quick Start
+## Quick Start (Docker)
 
 ```bash
-git clone https://github.com/your-repo/weather-api.git
+git clone https://github.com/your-username/weather-api.git
 cd weather-api
-composer install
 cp .env.example .env
-php artisan key:generate
+docker compose up -d --build
+```
+
+Once containers are up, open:
+
+```
+http://localhost:8000/api/weather?city=Omsk
 ```
 
 ---
 
-## .env Configuration
+## 🔐 .env Configuration
 
 Add your OpenWeatherMap API key to the `.env` file:
 
@@ -22,9 +27,11 @@ Add your OpenWeatherMap API key to the `.env` file:
 OPENWEATHER_API_KEY=your_api_key_here
 ```
 
+> No database is used in this project.
+
 ---
 
-## 📡 API Endpoint
+## API Endpoint
 
 ```
 GET /api/weather?city=Omsk
@@ -66,15 +73,27 @@ GET /api/weather?city=Omsk
 }
 ```
 
+---
+
 ## Running Tests
 
 ```bash
 php artisan test
 ```
 
+---
+
 ## Principles Applied
 
-- **SOLID** — layered architecture, dependency injection, abstractions
-- **DRY** — no duplication in response handling or validation
-- **KISS** — each class has one responsibility
-- **Testable** — architecture supports isolated unit testing
+- **SOLID** — clean separation, dependency injection
+- **DRY** — reusable error handling & structure
+- **KISS** — minimal & focused class responsibilities
+- **Testable** — service and repository fully covered
+
+---
+
+## Docker Notes
+
+- PHP 8.2 + FPM in `docker/php/Dockerfile`
+- Nginx configured in `docker/nginx/default.conf`
+- Laravel app served via `http://localhost:8000`
