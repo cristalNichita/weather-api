@@ -94,6 +94,6 @@ php artisan test
 
 ## Docker Notes
 
-- PHP 8.2 + FPM in `docker/php/Dockerfile`
+- PHP 8.3 + FPM in `docker/php/Dockerfile`
 - Nginx configured in `docker/nginx/default.conf`
 - Laravel app served via `http://localhost:8000`
